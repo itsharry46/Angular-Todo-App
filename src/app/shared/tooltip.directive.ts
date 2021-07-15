@@ -15,7 +15,7 @@ export class TooltipDirective implements AfterViewInit {
   ngAfterViewInit() {
     tippy(this.elRef.nativeElement, {
       content: this.tooltipContent
-    });
+    })
   }
 
 }
