@@ -1,4 +1,4 @@
-import { Directive, ElementRef, AfterViewInit, Input } from '@angular/core';
+import { Directive, ElementRef, AfterViewInit, Input, SimpleChanges } from '@angular/core';
 import tippy from 'tippy.js';
 
 @Directive({
@@ -8,6 +8,8 @@ export class TooltipDirective implements AfterViewInit {
 
   @Input('appTooltip') tooltipContent!: string;
 
+  public tippyInstance: any;
+
   constructor(private elRef: ElementRef) { 
 
   }
@@ -15,7 +17,19 @@ export class TooltipDirective implements AfterViewInit {
   ngAfterViewInit() {
     tippy(this.elRef.nativeElement, {
       content: this.tooltipContent
-    })
+    });
+  }
+
+  ngOnChanges(changes: SimpleChanges) {
+    if (changes['tooltipContent']) {  // input content has changed
+      this.updateToolTipContent()
+    }
+  }
+
+  updateToolTipContent() {
+    if (this.tippyInstance) {
+      this.tippyInstance.setContent(this.tooltipContent)
+    }
   }
 
 }
