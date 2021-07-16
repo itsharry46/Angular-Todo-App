@@ -1,48 +1,52 @@
-
 .todo-item {
     display: flex;
-    font-size: 18px;
- 
     align-items: center;
 
-    cursor: pointer;
     position: relative;
+    
+    cursor: pointer;
+    
     font-size: 18px;
 
-    padding: 20px;
+    padding: 35px 15px;
+
     border-bottom: 1px solid #f2f3f5;
 
     &.completed {
         color: #aaa;
     }
+}
 
-    .check-box {
-        display: flex;
-        flex-shrink: 0;
+.todo-item .check-box {
+    display: flex;
 
-        border: 2px solid #eee;
-        border-radius: 50%;
-        height: 28px;
-        width: 28px;
-        margin-right: 20px;
+    flex-shrink: 0;
+    
+    border: 2px solid #eee;
+    border-radius: 50%;
 
-        transition: background-color 0.2s, border-color 0.2s;
+    margin-right: 20px;
 
-        i.material-icons {
-            font-size: 20px;
-            margin: auto;
+    height: 28px;
+    width: 28px;
 
-            // hide by default
-            opacity: 0;
+    transition: background-color 0.2s, border-color 0.2s;
 
-            transition: opacity 0.2s;
-        }
+    i.material-icons {
+        font-size: 20px;
+        margin: auto;
+
+        color: #333;
+        
+        // hide by default
+        opacity: 0;
+
+        transition: opacity 0.2s;
     }
 }
 
-.todo-item:hover .check-box{
-    background-color: #eee;
-
+.todo-item:hover .check-box {
+    background: #eee;
     i.material-icons {
         opacity: 0.28;
     }
@@ -54,37 +58,35 @@
 
     i.material-icons {
         opacity: 1;
-        color: #000;
     }
 }
 
 .todo-item .todo-controls-box {
     position: absolute;
     bottom: 0;
-    right: 0;
-    
+    right: 5px;
+
     display: flex;
 
     // hide by default
     opacity: 0;
     visibility: hidden;
-    transform: translateY(2px );
+    transform: translateY(2px);
 
     transition: opacity 0.2s, visibility 0.2s, transform 0.2s;
 }
 
 .todo-item:hover .todo-controls-box {
     opacity: 1;
-    visibility: visible;    
+    visibility: visible;
+    transition-delay: 0.4s;
 
-    transition-delay: 0.5s;
     transform: translateY(0);
 }
 
 .todo-controls-box .todo-control-button {
     display: flex;
     background: #f5f7f8;
-    //border-radius:4px;
 
     padding: 7px 10px;
 
@@ -94,8 +96,11 @@
     }
 
     &:hover {
-        color: #333;
         background: #eee;
+
+        i.material-icons {
+            color: #333;
+        }
     }
 
     &:active {
@@ -106,16 +111,15 @@
         border-top-left-radius: 7px;
     }
 
-    &:last-of-type{
+    &:last-of-type {
         border-top-right-radius: 7px;
     }
-
 }
 
 .todo-controls-box .todo-control-button.is-danger:hover i.material-icons {
-    color: rgba(155, 27, 27);
+    color: rgb(155, 27, 27);
 }
 
 .todo-controls-box .todo-control-button.is-danger:active i.material-icons {
-    color: rgba(189, 37, 37);
+    color: rgb(189, 37, 37);
 }

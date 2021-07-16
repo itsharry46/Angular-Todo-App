@@ -1,4 +1,4 @@
-import { Component, Inject, OnInit } from '@angular/core';
+import { Component, OnInit, Inject } from '@angular/core';
 import { NgForm } from '@angular/forms';
 import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
 import { Todo } from '../shared/todo.model';
@@ -18,21 +18,18 @@ export class EditTodoDialogComponent implements OnInit {
   }
 
   close() {
-    this.dialogRef.close();
+    this.dialogRef.close()
   }
-
+  
   onFormSubmit(form: NgForm) {
-    if(form.invalid){
-      alert("Edit field is empty")
-      return;
-    }
-
+    if (form.invalid) return
+    
     const updatedTodo = {
       ...this.todo,
       ...form.value
     }
-
-    this.dialogRef.close(updatedTodo);
+    
+    this.dialogRef.close(updatedTodo)
   }
 
 }

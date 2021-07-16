@@ -7,25 +7,26 @@ import { Todo } from './todo.model';
 export class DataService {
 
   todos: Todo[] = [
-    new Todo('This is a test!', true),
-    new Todo('long strings')
+    // new Todo('this is a test!', false),
+    // new Todo('Lorem ipsum dolor sit amet consectetur adipisicing elit. Suscipit voluptates dolorem alias dolores deserunt, qui, amet odio facilis tempora unde sequi numquam explicabo nihil iste labore beatae ea rerum expedita.', true)
   ]
-
+  
   constructor() { }
 
-    getAllTodos() {
-      return this.todos;
-    }
+  getAllTodos() {
+    return this.todos
+  }
 
-    addTodo(todo: Todo) {
-      this.todos.push(todo);
-    }
+  addTodo(todo: Todo) {
+    this.todos.push(todo)
+  }
 
-    updateTodo(index: number, updatedTodo: Todo) {
-      this.todos[index] = updatedTodo;
-    }
+  updateTodo(index: number, updatedTodo: Todo) {
+    this.todos[index] = updatedTodo
+  }
 
-    deleteTodo(index: number) {
-      this.todos.splice(index, 1);
-    }
+  deleteTodo(index: number) {
+    this.todos.splice(index, 1)
+  }
+  
 }
