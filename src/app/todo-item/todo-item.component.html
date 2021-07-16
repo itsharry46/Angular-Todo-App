@@ -7,11 +7,11 @@
   </div>
 
   <div class="todo-controls-box" (click)="$event.stopPropagation()">
-    <div class="todo-control-button" id="editTooltip" appTooltip="Edit Todo!" (click)="onEditButtonClick()">
+    <div class="todo-control-button" (click)="onEditButtonClick()">
       <i class="material-icons">edit</i>
     </div>
 
-    <div class="todo-control-button is-danger" appTooltip="Delete Todo!" (click)="onDeleteButtonClick()">
+    <div class="todo-control-button is-danger" (click)="onDeleteButtonClick()">
       <i class="material-icons">delete</i>
     </div>
   </div>
